@@ -1,0 +1,50 @@
+name: Pull Request Checks!
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: read
+  statuses: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+  
+      - name: Super-linter
+        uses: super-linter/super-linter@v5
+        env:
+          DEFAULT_BRANCH: main
+          VALIDATE_GITHUB_ACTIONS: true
+          VALIDATE_GO: true
+          VALIDATE_MARKDOWN: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: 1.21
+
+    - name: Build
+      run: go build -v ./...
+
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout Repository"
+        uses: actions/checkout@v4
+
+      - name: "Dependency Review"
+        uses: actions/dependency-review-action@v3
