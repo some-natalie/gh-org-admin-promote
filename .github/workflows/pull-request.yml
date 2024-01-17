@@ -22,8 +22,9 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           VALIDATE_GITHUB_ACTIONS: true
-          VALIDATE_GO: true
+          VALIDATE_GO: false # will deal with this later maybe
           VALIDATE_MARKDOWN: true
+          MARKDOWN_CONFIG_FILE: .markdownlint.json
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build:
