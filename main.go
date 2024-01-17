@@ -103,11 +103,11 @@ func main() {
 						Email               string `graphql:"email"`
 						ViewerCanAdminister bool   `graphql:"viewerCanAdminister"`
 						ViewerIsAMember     bool   `graphql:"viewerIsAMember"`
-						ArchivedAt          string `graphql:"archivedAt"`
 						Repositories        struct {
 							TotalCount     int `graphql:"totalCount"`
 							TotalDiskUsage int `graphql:"totalDiskUsage"`
 						} `graphql:"repositories"`
+						ArchivedAt string `graphql:"archivedAt"`
 					} `graphql:"node"`
 				} `graphql:"edges"`
 				PageInfo struct {
@@ -130,7 +130,7 @@ func main() {
 
 		// Write each organization to the CSV file
 		for _, org := range orgListQuery.Enterprise.Organizations.Edges {
-			err = writer.Write([]string{org.Node.ID, org.Node.CreatedAt, org.Node.Login, org.Node.Email, fmt.Sprintf("%t", org.Node.ViewerCanAdminister), fmt.Sprintf("%t", org.Node.ViewerIsAMember), org.Node.ArchivedAt, fmt.Sprintf("%d", org.Node.Repositories.TotalCount), fmt.Sprintf("%d", org.Node.Repositories.TotalDiskUsage)})
+			err = writer.Write([]string{org.Node.ID, org.Node.CreatedAt, org.Node.Login, org.Node.Email, fmt.Sprintf("%t", org.Node.ViewerCanAdminister), fmt.Sprintf("%t", org.Node.ViewerIsAMember), fmt.Sprintf("%d", org.Node.Repositories.TotalCount), fmt.Sprintf("%d", org.Node.Repositories.TotalDiskUsage), org.Node.ArchivedAt})
 			if err != nil {
 				log.Fatal(err)
 			}
