@@ -10,6 +10,9 @@ jobs:
   comment-on-pull-request:
     name: Comment on PR to set expectations
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/github-script@v7
         with:
