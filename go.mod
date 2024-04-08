@@ -3,7 +3,7 @@ module github.com/some-natalie/gh-org-admin-promote
 go 1.21.5
 
 require (
-	github.com/cli/go-gh/v2 v2.7.0
+	github.com/cli/go-gh/v2 v2.8.0
 	github.com/cli/shurcooL-graphql v0.0.4
 )
 
@@ -16,10 +16,10 @@ require (
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/muesli/termenv v0.15.2 // indirect
-	github.com/rivo/uniseg v0.4.4 // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/thlib/go-timezone-local v0.0.0-20210907160436-ef149e42d28e // indirect
-	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/term v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
