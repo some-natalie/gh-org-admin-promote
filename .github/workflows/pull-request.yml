@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
   
       - name: Super-linter
-        uses: super-linter/super-linter@v6
+        uses: super-linter/super-linter@v7
         env:
           DEFAULT_BRANCH: main
           VALIDATE_GITHUB_ACTIONS: true
