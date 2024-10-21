@@ -3,7 +3,7 @@ module github.com/some-natalie/gh-org-admin-promote
 go 1.21.5
 
 require (
-	github.com/cli/go-gh/v2 v2.10.0
+	github.com/cli/go-gh/v2 v2.11.0
 	github.com/cli/shurcooL-graphql v0.0.4
 )
 
