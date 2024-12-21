@@ -16,6 +16,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Precompile all gh extension architectures
-        uses: cli/gh-extension-precompile@v1
+        uses: cli/gh-extension-precompile@v2
         with:
           go_version: "1.21"
